@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Marry Me?</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #fff0f5;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #ff69b4;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .buttons {
+      margin-top: 50px;
+    }
+
+    .button {
+      font-size: 1.5em;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background-color: #ff69b4;
+      color: white;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+    }
+
+    .yes:hover {
+      background-color: #ff1493;
+    }
+
+    .no {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+    }
+
+    #heart {
+      font-size: 5em;
+      color: red;
+      display: none;
+      animation: heartBeat 1.5s infinite;
+    }
+
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      50% { transform: scale(0.9); }
+      100% { transform: scale(1); }
+    }
+
+    #loveMessage {
+      font-size: 2em;
+      display: none;
+      margin-top: 20px;
+      color: #ff69b4;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .floating-heart {
+      position: absolute;
+      font-size: 2em;
+      color: red;
+      opacity: 0.8;
+      animation: floatUp 5s infinite ease-in-out;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0.8; }
+      50% { transform: translateY(-200px); opacity: 0.5; }
+      100% { transform: translateY(0); opacity: 0.8; }
+    }
+
+    /* Random placement of hearts */
+    .heart1 { left: 10%; animation-delay: 0s; }
+    .heart2 { left: 30%; animation-delay: 1s; }
+    .heart3 { left: 50%; animation-delay: 2s; }
+    .heart4 { left: 70%; animation-delay: 3s; }
+    .heart5 { left: 90%; animation-delay: 4s; }
+  </style>
+</head>
+<body>
+
+  <h1>Will You Marry Me??</h1>
+
+  <div class="buttons">
+    <button class="button yes" onclick="sayYes()">YES</button>
+    <button class="button no" id="noButton" onclick="sayNo()">NO</button>
+  </div>
+
+  <div id="loveMessage">I LOVE YOU MY WIFE, BE WITH ME FOREVER ❤️</div>
+  <div id="heart">❤️</div>
+
+  <!-- Floating hearts -->
+  <div class="floating-heart heart1">❤️</div>
+  <div class="floating-heart heart2">❤️</div>
+  <div class="floating-heart heart3">❤️</div>
+  <div class="floating-heart heart4">❤️</div>
+  <div class="floating-heart heart5">❤️</div>
+
+  <script>
+    function sayYes() {
+      document.getElementById('loveMessage').style.display = 'block';
+      document.getElementById('heart').style.display = 'block';
+      document.getElementById('noButton').style.display = 'none'; // Hide "NO" button after clicking YES
+    }
+
+    function sayNo() {
+      let noButton = document.getElementById('noButton');
+      noButton.style.top = Math.random() * (window.innerHeight - noButton.offsetHeight) + 'px';
+      noButton.style.left = Math.random() * (window.innerWidth - noButton.offsetWidth) + 'px';
+    }
+  </script>
+
+</body>
+</html>
